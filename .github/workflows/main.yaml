@@ -1,0 +1,27 @@
+name: Deploy dotnet app
+
+on:
+  push:
+    branches:
+      - main
+
+jobs: 
+  server:
+    runs-on: self-hosted
+
+    steps:
+      - name: Sync latest repository code
+        run: |
+          cd ~/2526-dotnet-template
+          git pull origin main
+
+      - name: Install dotnet
+        run: |
+          apt install dotnet-sdk-10.0
+
+      - name: Run dotnet
+        run: |
+          cd ~/2526-dotnet-template/src/Rise.Server
+          dotnet run
+
+
