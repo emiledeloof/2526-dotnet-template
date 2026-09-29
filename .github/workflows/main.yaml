@@ -23,8 +23,8 @@ jobs:
 
       - name: Install dotnet
         run: |
-          sudo apt update && sudo apt install
-          sudo apt install dotnet-sdk-10.0
+          sudo apt update && sudo apt install -y
+          sudo apt install -y dotnet-sdk-10.0
 
       - name: Run dotnet
         run: |
